@@ -1,6 +1,7 @@
 .toolbar {
     height: 60px;
     margin: -8px;
+    padding-left: 10px;
     display: flex;
     align-items: center;
     background-color: #1976d2;
@@ -8,9 +9,9 @@
     font-weight: 600;
   }
 
-  .toolbar img {
+  /* .toolbar img {
     margin: 0 16px;
-  }
+  } */
 
   svg#clouds {
     position: fixed;
