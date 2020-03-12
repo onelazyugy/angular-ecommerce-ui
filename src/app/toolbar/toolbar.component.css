@@ -9,14 +9,19 @@
     font-weight: 600;
 }
 
+.site-title {
+    padding-left: 20px;
+}
+
 .menu {
     padding-left: 100px;
 }
 
 .menu a{
     text-decoration: none;
+    color: white;
 }
 
 .menu a:hover{
-    color: white;
+    color: orange;
 }
