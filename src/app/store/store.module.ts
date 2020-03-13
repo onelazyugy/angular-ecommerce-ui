@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { StoreComponent } from './store.component';
 import { ElectronicComponent } from './electronic/electronic.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -13,6 +14,7 @@ import { ClothingComponent } from './clothing/clothing.component';
         ClothingComponent
     ],
     imports: [
+        CommonModule, //ngFor
         AppRoutingModule
     ]
 })

@@ -1,1 +1,18 @@
-<p>electronic component</p>
+<div>
+    <p>electronic component</p>
+    <div *ngFor="let electronic of electronics">
+        <a href="{{electronic.link}}" class="ui medium image">
+            <img class="ui small rounded image" src="{{electronic.imgurl}}">
+        </a>
+    </div>
+    <div class="ui small images">
+        
+        <img src="https://semantic-ui.com/images/wireframe/image.png">
+            
+        
+        <img src="https://semantic-ui.com/images/wireframe/image.png">
+        <img src="https://semantic-ui.com/images/wireframe/image.png">
+        <img src="https://semantic-ui.com/images/wireframe/image.png">
+      </div>
+</div>
+
