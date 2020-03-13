@@ -4,6 +4,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { CartComponent } from './cart/cart.component';
+import { ElectronicComponent } from './store/electronic/electronic.component';
+import { BookComponent } from './store/book/book.component';
+import { ClothingComponent } from './store/clothing/clothing.component';
 
 const routes: Routes = [
   {
@@ -12,7 +15,12 @@ const routes: Routes = [
   },
   {
     path: 'store', 
-    component: StoreComponent
+    component: StoreComponent,
+    children: [
+      { path: 'electronics', component: ElectronicComponent},
+      { path: 'books', component: BookComponent},
+      { path: 'clothes', component: ClothingComponent}
+    ] 
   },
   {
     path: 'cart', 
