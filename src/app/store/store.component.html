@@ -1,31 +1,18 @@
-
 <div class="ui grid">
-    <div class="four wide column">
-        <p>categories</p>
-        <div class="ui middle aligned selection list">
-            <div class="item">
-              <i class="shopping cart icon"></i>
-              <div class="content">
-                <a [routerLink]="['/store/electronics']"><div class="header">ELECTRONICS</div></a>
-              </div>
-            </div>
-            <div class="item">
-              <i class="shopping cart icon"></i>
-              <div class="content">
-                <a [routerLink]="['/store/books']"><div class="header">BOOKS</div></a>
-              </div>
-            </div>
-            <div class="item">
-              <i class="shopping cart icon"></i>
-              <div class="content">
-                <a [routerLink]="['/store/clothes']"><div class="header">CLOTHING</div></a>
-              </div>
-            </div>
-          </div>
+  <div class="four wide column">
+    <p>categories</p>
+    <div class="ui middle aligned selection list">
+      <div class="item" *ngFor="let category of categories">
+        <i class="{{category.icon}}"></i>
+        <div class="content">
+          <a [routerLink]="[category.route]">
+            <div class="header">{{category.name}}</div>
+          </a>
         </div>
-    <div class="eight wide column">
-        <!-- <app-electronic></app-electronic>
-        <p>items for sell</p> -->
-        <router-outlet></router-outlet>
+      </div>
     </div>
+  </div>
+  <div class="eight wide column">
+    <router-outlet></router-outlet>
+  </div>
 </div>
