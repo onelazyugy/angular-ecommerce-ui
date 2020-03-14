@@ -5,13 +5,15 @@ import { ElectronicComponent } from './electronic/electronic.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { BookComponent } from './book/book.component';
 import { ClothingComponent } from './clothing/clothing.component';
+import { ItemdetailComponent } from './itemdetail/itemdetail.component';
 
 @NgModule({
     declarations: [
         StoreComponent,
         ElectronicComponent,
         BookComponent,
-        ClothingComponent
+        ClothingComponent,
+        ItemdetailComponent
     ],
     imports: [
         CommonModule, //ngFor
