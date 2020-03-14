@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElectronicComponent implements OnInit {
   electronics = [
-    {'id': 1, 'name': 'iphone 11', 'link': 'www.google.com', 'imgurl': 'https://www.boostmobile.com/amp/img/iphone-11/IPH11BT64BLK/image.jpg'},
-    {'id': 2, 'name': 'iphone xs max', 'link': 'www.google.com', 'imgurl': 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-new-1.jpg'},
-    {'id': 3, 'name': 'iphone 11', 'link': 'www.google.com', 'imgurl': 'https://static.bhphoto.com/images/images500x500/apple_mvvk2ll_a_16_macbook_pro_late_1573663014_1520435.jpg'}
+    {'id': 1, 'name': 'Item Title', 'link': 'www.google.com', 'imgurl': 'https://semantic-ui.com/images/avatar/large/daniel.jpg'},
+    {'id': 2, 'name': 'Item Title', 'link': 'www.google.com', 'imgurl': 'https://semantic-ui.com/images/avatar/large/helen.jpg'},
+    {'id': 3, 'name': 'Item Title', 'link': 'www.google.com', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'},
+    {'id': 4, 'name': 'Item Title', 'link': 'www.google.com', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'},
+    {'id': 5, 'name': 'Item Title', 'link': 'www.google.com', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'},
+    {'id': 6, 'name': 'Item Title', 'link': 'www.google.com', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'}
   ]
   constructor() { }
 

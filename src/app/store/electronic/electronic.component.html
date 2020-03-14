@@ -1,69 +1,13 @@
 <div class="ui three stackable cards">
-    <div class="card">
+    <div class="card" *ngFor="let electronic of electronics">
         <div class="image">
-            <img src="https://semantic-ui.com/images/avatar/large/daniel.jpg">
+            <img src="{{electronic.imgurl}}">
         </div>
         <div class="content">
-            <a class="header">Item Title</a>
+            <a class="header center aligned">{{electronic.name}}</a>
         </div>
         <div class="extra content center aligned">
-            <button class="ui button">ADD TO CARD</button>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image">
-            <img src="https://semantic-ui.com/images/avatar/large/helen.jpg">
-        </div>
-        <div class="content">
-            <a class="header">Item Title</a>
-        </div>
-        <div class="extra content center aligned">
-            <button class="ui button">ADD TO CARD</button>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image">
-            <img src="https://semantic-ui.com/images/avatar/large/elliot.jpg">
-        </div>
-        <div class="content">
-            <a class="header">Item Title</a>
-        </div>
-        <div class="extra content center aligned">
-            <button class="ui button">ADD TO CARD</button>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image">
-            <img src="https://semantic-ui.com/images/avatar/large/elliot.jpg">
-        </div>
-        <div class="content">
-            <a class="header">Item Title</a>
-        </div>
-        <div class="extra content center aligned">
-            <button class="ui button">ADD TO CARD</button>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image">
-            <img src="https://semantic-ui.com/images/avatar/large/elliot.jpg">
-        </div>
-        <div class="content">
-            <a class="header">Item Title</a>
-        </div>
-        <div class="extra content center aligned">
-            <button class="ui button">ADD TO CARD</button>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image">
-            <img src="https://semantic-ui.com/images/avatar/large/elliot.jpg">
-        </div>
-        <div class="content">
-            <a class="header">Item Title</a>
-        </div>
-        
-        <div class="extra content center aligned">
-            <button class="ui button">ADD TO CARD</button>
+            <button class="positive ui button">ADD TO CARD</button>
         </div>
     </div>
 </div>
