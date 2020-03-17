@@ -26,7 +26,9 @@ const routes: Routes = [
       { path: 'electronics', component: ElectronicComponent},
       { path: 'books', component: BookComponent},
       { path: 'clothes', component: ClothingComponent},
-      { path: 'electronics/:id', component: ItemdetailComponent }
+      { path: 'electronics/:id', component: ItemdetailComponent },
+      { path: 'books/:id', component: ItemdetailComponent },
+      { path: 'clothes/:id', component: ItemdetailComponent }
     ] 
   },
   {

@@ -1,1 +1,14 @@
-<p>book component</p>
+<h1 class="ui header">Books</h1>
+<div class="ui three stackable cards">
+    <div class="card" *ngFor="let book of books">
+        <div [ngClass]="['image', 'item']" [routerLink]="['/store/books', book.id]">
+            <img src="{{book.imgurl}}">
+        </div>
+        <div class="content" [ngClass]="item">
+            {{book.name}}
+        </div>
+        <div class="extra content center aligned">
+            <button class="positive ui button">ADD TO CARD</button>
+        </div>
+    </div>
+</div>

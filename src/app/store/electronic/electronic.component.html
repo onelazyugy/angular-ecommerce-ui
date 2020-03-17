@@ -1,7 +1,7 @@
 <h1 class="ui header">Electronics</h1>
 <div class="ui three stackable cards">
     <div class="card" *ngFor="let electronic of electronics">
-        <div class="image" [routerLink]="['/store/electronics', electronic.id]">
+        <div [ngClass]="['image', 'item']" [routerLink]="['/store/electronics', electronic.id]">
             <img src="{{electronic.imgurl}}">
         </div>
         <div class="content" [ngClass]="item">
