@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { BookComponent } from './book/book.component';
 import { ClothingComponent } from './clothing/clothing.component';
 import { ItemdetailComponent } from './itemdetail/itemdetail.component';
+import { StoreshowcaseComponent } from './storeshowcase/storeshowcase.component';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { ItemdetailComponent } from './itemdetail/itemdetail.component';
         ElectronicComponent,
         BookComponent,
         ClothingComponent,
-        ItemdetailComponent
+        ItemdetailComponent,
+        StoreshowcaseComponent
     ],
     imports: [
         CommonModule, //ngFor

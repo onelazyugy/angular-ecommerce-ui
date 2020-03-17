@@ -1,14 +1,14 @@
+<h1 class="ui header">Electronics</h1>
 <div class="ui three stackable cards">
     <div class="card" *ngFor="let electronic of electronics">
-        <div class="image">
+        <div class="image" [routerLink]="['/store/electronics', electronic.id]">
             <img src="{{electronic.imgurl}}">
         </div>
-        <div class="content">
-            <a [routerLink]="['/store/electronics', electronic.id]" class="header center aligned">{{electronic.name}}</a>
+        <div class="content" [ngClass]="item">
+            {{electronic.name}}
         </div>
         <div class="extra content center aligned">
             <button class="positive ui button">ADD TO CARD</button>
         </div>
     </div>
 </div>
-

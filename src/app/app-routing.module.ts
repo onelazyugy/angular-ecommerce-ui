@@ -8,6 +8,7 @@ import { ElectronicComponent } from './store/electronic/electronic.component';
 import { BookComponent } from './store/book/book.component';
 import { ClothingComponent } from './store/clothing/clothing.component';
 import { ItemdetailComponent } from './store/itemdetail/itemdetail.component';
+import { StoreshowcaseComponent } from './store/storeshowcase/storeshowcase.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       // { path: 'electronics', component: ElectronicComponent, children: [
       //   {path: ':id', component: ItemdetailComponent}
       // ]},
+      { path: '', component: StoreshowcaseComponent},
       { path: 'electronics', component: ElectronicComponent},
       { path: 'books', component: BookComponent},
       { path: 'clothes', component: ClothingComponent},

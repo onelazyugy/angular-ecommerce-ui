@@ -11,6 +11,8 @@
 
 .site-title {
     padding-left: 20px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .menu {

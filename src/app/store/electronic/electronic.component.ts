@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-electronic',
@@ -14,7 +15,10 @@ export class ElectronicComponent implements OnInit {
     {'id': 5, 'name': 'Item Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'},
     {'id': 6, 'name': 'Item Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'}
   ]
-  constructor() { }
+  constructor(private router: Router) { 
+    const currentRouteUrl = this.router.url;
+    console.log(currentRouteUrl);
+  }
 
   ngOnInit() {
 

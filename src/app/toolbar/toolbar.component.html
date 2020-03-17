@@ -1,6 +1,6 @@
 <div style="margin-bottom: 10px;">
     <div class="toolbar" role="banner">
-        <span class="site-title">{{toolbarItems.title | uppercase}}</span>
+        <span [routerLink]="['']" class="site-title">{{toolbarItems.title | uppercase}}</span>
         <div *ngFor="let toolbarMenu of toolbarItems.menus">
             <span class="menu"><a [routerLink]="[toolbarMenu.route]"><i class="{{toolbarMenu.icon}}"></i>{{toolbarMenu.name}}</a></span>
         </div>
