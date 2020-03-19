@@ -11,8 +11,23 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
+PROD BUILD: 
+
+ng build --prod
+
+DEV BUILD:
+
+ng build --configuration=dev
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+tsconfig.json -- set fullTemplateTypeCheck to false
+
+## RUN dist/ folder
+make sure you install:<br>
+sudo npm install http-server -g <br>
+npx http-server dist/angular-ecommerce
+http://192.168.1.76:8080
 
 ## Running unit tests
 

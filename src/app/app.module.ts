@@ -8,12 +8,11 @@ import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
 import { HomeModule } from './home/home.module';
 import { StoreModule } from './store/store.module';
 import { CartModule } from './cart/cart.module';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ToolbarModule } from './toolbar/toolbar.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ToolbarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +22,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     HomeModule,
     StoreModule,
     CartModule,
+    ToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
