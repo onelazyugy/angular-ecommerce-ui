@@ -34,7 +34,7 @@ app.use(
   // '/backend/api/*',
   '/ecommerce/*',
   proxy({ 
-      target: 'http://localhost:8282', 
+      target: 'http://localhost:8181', 
       changeOrigin: true,
       headers: {
         'Content-Type': 'application/json'
