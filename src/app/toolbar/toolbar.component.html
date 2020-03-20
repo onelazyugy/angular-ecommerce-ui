@@ -2,7 +2,7 @@
     <div class="toolbar" role="banner">
         <span [routerLink]="['']" class="site-title">{{toolbarItems.title | uppercase}}</span>
         <div *ngFor="let toolbarMenu of toolbarItems.menus">
-            <span class="menu"><a [routerLink]="[toolbarMenu.route]"><i class="{{toolbarMenu.icon}}"></i>{{toolbarMenu.name}}</a></span>
+            <span [ngClass]="{'menu': true}"><a [routerLink]="[toolbarMenu.route]"><i [ngClass]="{'menuadmin': toolbarMenu.id==4}" class="{{toolbarMenu.icon}}"></i><span [ngClass]="{'menuadmin': toolbarMenu.id==4}">{{toolbarMenu.name}}</span></a></span>
         </div>
     </div>
 </div>

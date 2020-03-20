@@ -6,7 +6,8 @@
 
 export const environment = {
   production: false,
-  storeUrl: 'http://localhost:8181/ecommerce/api/v1/store/items'
+  storeUrl: 'http://localhost:8181/ecommerce/api/v1/store/items',
+  homeUrl: 'http://localhost:8181/ecommerce/api/v1/home/items'
 };
 
 /*
