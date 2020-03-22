@@ -10,4 +10,42 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">new arrival items</h1>
+      <div class="ui five stackable cards">
+        <div class="card" *ngFor="let newArrivalItem of newArrivalItems">
+          <div [ngClass]="['image', 'item']">
+              <img src="{{newArrivalItem.imgurl}}">
+          </div>
+          <div class="content" [ngClass]="item">
+              {{newArrivalItem.name}}
+          </div>
+          <div class="extra content center aligned">
+              <button class="positive ui button">ADD TO CARD</button>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">new arrival items</h1>
+      <div class="ui five stackable cards">
+        <div class="card" *ngFor="let discountedItem of discountedItems">
+          <div [ngClass]="['image', 'item']">
+              <img src="{{discountedItem.imgurl}}">
+          </div>
+          <div class="content" [ngClass]="item">
+              {{discountedItem.name}}
+          </div>
+          <div class="extra content center aligned">
+              <button class="positive ui button">ADD TO CARD</button>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
 </div>

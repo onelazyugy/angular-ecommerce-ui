@@ -10,8 +10,8 @@ import { environment } from '../../environments/environment';
 })
 export class HomeService {
     home: Home;
-    private catalogSubject$ = new BehaviorSubject<Home>(this.home);
-    catalogChange$ = this.catalogSubject$.asObservable();
+    private homeSubject$ = new BehaviorSubject<Home>(this.home);
+    homeChange$ = this.homeSubject$.asObservable();
     
     constructor(private http: HttpClient){}
 
@@ -20,20 +20,13 @@ export class HomeService {
         .pipe(
             map(data => new Home().deserialize(data)),
             catchError(error => {
-                console.log('Handling error and rethrowing it...', error);
+                console.log('fetchHomeDetials: error and rethrowing it...', error);
                 return throwError(error);
             })
         );
+    }
 
-        // return this.http.get<Home>(url).pipe(
-        // map(data => new Home().deserialize(data)),
-        // catchError(() => throwError('User not found')));
-
-        // return this.http.get(url).pipe(map((res:Response) => res.json())
-        // .catch((error:any) => Observable.throw(error.json().error || 'Server error')));
-
-        // return this.http.get(url).map((res:Response) => res.json())
-        // .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-        
+    emitHomeDetials(home: Home) {
+        this.homeSubject$.next(home);
     }
 }
