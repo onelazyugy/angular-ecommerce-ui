@@ -1,40 +1,6 @@
 .bg-color {
     background-color: beige;
 }
-/* .toolbar {
-    height: 60px;
-    margin: -8px;
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-}
-
-.site-title {
-    padding-left: 20px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.menu {
-    padding-left: 100px;
-}
-
-.menu a{
-    text-decoration: none;
-    color: white;
-}
-
-.menu a:hover{
-    color: orange;
-}
-
-.menuadmin {
-    color: orange;
-} */
-
 .item a:hover {
     color: orange;
 }
