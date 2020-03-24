@@ -1,4 +1,7 @@
-.toolbar {
+.bg-color {
+    background-color: beige;
+}
+/* .toolbar {
     height: 60px;
     margin: -8px;
     padding-left: 10px;
@@ -29,5 +32,9 @@
 }
 
 .menuadmin {
+    color: orange;
+} */
+
+.item a:hover {
     color: orange;
 }
