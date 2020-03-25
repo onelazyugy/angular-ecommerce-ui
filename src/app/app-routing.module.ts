@@ -32,6 +32,10 @@ const routes: Routes = [
     ] 
   },
   {
+    path: 'item/:id',
+    component: ItemdetailComponent
+  },
+  {
     path: 'cart', 
     component: CartComponent
   },

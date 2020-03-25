@@ -4,11 +4,14 @@
             <h1 class="ui header">most viewed items</h1>
             <div class="ui five stackable cards">
                 <div class="card" *ngFor="let mostViewedItem of mostViewedItems">
-                    <div [ngClass]="['image', 'item']">
+                    <div [ngClass]="['image', 'item']" [routerLink]="['/item', mostViewedItem.id]">
                         <img src="{{mostViewedItem.imgurl}}">
                     </div>
                     <div class="content" [ngClass]="item">
-                        {{mostViewedItem.name}}
+                        <a [routerLink]="['/item', mostViewedItem.id]">{{mostViewedItem.name}}</a>
+                    </div>
+                    <div class="content" [ngClass]="item">
+                        {{mostViewedItem.price | currency}}
                     </div>
                 </div>
             </div>
@@ -19,11 +22,14 @@
             <h1 class="ui header">recently viewed items</h1>
             <div class="ui five stackable cards">
                 <div class="card" *ngFor="let recentlyViewedItem of recentlyViewedItems">
-                    <div [ngClass]="['image', 'item']">
+                    <div [ngClass]="['image', 'item']" [routerLink]="['/item', recentlyViewedItem.id]">
                         <img src="{{recentlyViewedItem.imgurl}}">
                     </div>
                     <div class="content" [ngClass]="item">
-                        {{recentlyViewedItem.name}}
+                        <a [routerLink]="['/item', recentlyViewedItem.id]">{{recentlyViewedItem.name}}</a>
+                    </div>
+                    <div class="content" [ngClass]="item">
+                        {{recentlyViewedItem.price | currency}}
                     </div>
                 </div>
             </div>

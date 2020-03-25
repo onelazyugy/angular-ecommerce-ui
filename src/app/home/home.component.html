@@ -15,28 +15,32 @@
       <h1 class="ui header">new arrival items</h1>
       <div class="ui five stackable cards">
         <div class="card" *ngFor="let newArrivalItem of newArrivalItems">
-          <div [ngClass]="['image', 'item']">
+          <div [ngClass]="['image', 'item']" [routerLink]="['/item', newArrivalItem.id]">
             <img src="{{newArrivalItem.imgurl}}">
           </div>
           <div class="content" [ngClass]="item">
-            {{newArrivalItem.name}}
+            <a [routerLink]="['/item', newArrivalItem.id]">{{newArrivalItem.name}}</a>
+          </div>
+          <div class="content" [ngClass]="item">
+            {{newArrivalItem.price | currency}}
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
   <div class="row">
     <div class="column">
       <h1 class="ui header">new arrival items</h1>
       <div class="ui five stackable cards">
         <div class="card" *ngFor="let discountedItem of discountedItems">
-          <div [ngClass]="['image', 'item']">
+          <div [ngClass]="['image', 'item']" [routerLink]="['/item', discountedItem.id]">
             <img src="{{discountedItem.imgurl}}">
           </div>
           <div class="content" [ngClass]="item">
-            {{discountedItem.name}}
+            <a [routerLink]="['/item', discountedItem.id]">{{discountedItem.name}}</a>
+          </div>
+          <div class="content" [ngClass]="item">
+            {{discountedItem.price | currency}}
           </div>
         </div>
       </div>
