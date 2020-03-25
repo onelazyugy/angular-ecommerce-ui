@@ -1,20 +1,30 @@
-<div class="ui one column grid">
+<div class="ui padded grid">
     <div class="row">
-        <h1 class="ui header">most viewed items</h1>
-        <div class="ui four stackable cards">
-            <div class="card" *ngFor="let mostViewedItem of mostViewedItems">
-                <div [ngClass]="['image', 'item']">
-                    <img src="{{mostViewedItem.imgurl}}">
+        <div class="column">
+            <h1 class="ui header">most viewed items</h1>
+            <div class="ui five stackable cards">
+                <div class="card" *ngFor="let mostViewedItem of mostViewedItems">
+                    <div [ngClass]="['image', 'item']">
+                        <img src="{{mostViewedItem.imgurl}}">
+                    </div>
+                    <div class="content" [ngClass]="item">
+                        {{mostViewedItem.name}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <h1 class="ui header">recently viewed items</h1>
-        <div class="ui four stackable cards">
-            <div class="card" *ngFor="let recentlyViewedItem of recentlyViewedItems">
-                <div [ngClass]="['image', 'item']">
-                    <img src="{{recentlyViewedItem.imgurl}}">
+        <div class="column">
+            <h1 class="ui header">recently viewed items</h1>
+            <div class="ui five stackable cards">
+                <div class="card" *ngFor="let recentlyViewedItem of recentlyViewedItems">
+                    <div [ngClass]="['image', 'item']">
+                        <img src="{{recentlyViewedItem.imgurl}}">
+                    </div>
+                    <div class="content" [ngClass]="item">
+                        {{recentlyViewedItem.name}}
+                    </div>
                 </div>
             </div>
         </div>
