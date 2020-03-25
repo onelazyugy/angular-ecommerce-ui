@@ -1,14 +1,14 @@
 <h1 class="ui header">Books</h1>
 <div class="ui three stackable cards">
     <div class="card" *ngFor="let book of books">
-        <div [ngClass]="['image', 'item']" [routerLink]="['/store/books', book.id]">
+        <div [ngClass]="['image', 'item']" [routerLink]="['/item', book.id]">
             <img src="{{book.imgurl}}">
         </div>
         <div class="content" [ngClass]="item">
-            {{book.name}}
+            <a [routerLink]="['/item', book.id]">{{book.name}}</a>
         </div>
-        <div class="extra content center aligned">
-            <button class="positive ui button">ADD TO CARD</button>
+        <div class="content" [ngClass]="item">
+            {{book.price | currency}}
         </div>
     </div>
 </div>

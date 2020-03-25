@@ -1,14 +1,14 @@
 <h1 class="ui header">Clothes</h1>
 <div class="ui three stackable cards">
     <div class="card" *ngFor="let cloth of clothes">
-        <div [ngClass]="['image', 'item']" [routerLink]="['/store/clothes', cloth.id]">
+        <div [ngClass]="['image', 'item']" [routerLink]="['/item', cloth.id]">
             <img src="{{cloth.imgurl}}">
         </div>
         <div class="content" [ngClass]="item">
-            {{cloth.name}}
+            <a [routerLink]="['/item', cloth.id]">{{cloth.name}}</a>
         </div>
-        <div class="extra content center aligned">
-            <button class="positive ui button">ADD TO CARD</button>
+        <div class="content" [ngClass]="item">
+            {{cloth.price | currency}}
         </div>
     </div>
 </div>

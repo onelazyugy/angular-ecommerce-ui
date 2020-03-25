@@ -1,22 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Item } from 'src/app/model/item.model';
+import { Subscription } from 'rxjs';
+import { ClothingService } from 'src/app/service/clothing.service';
+import { Clothing } from 'src/app/model/clothing.model';
 
 @Component({
   selector: 'app-clothing',
   templateUrl: './clothing.component.html',
   styleUrls: ['./clothing.component.css']
 })
-export class ClothingComponent implements OnInit {
-  clothes = [
-    {'id': 1, 'name': 'Clothes Title', 'imgurl': 'https://semantic-ui.com/images/wireframe/image.png'},
-    {'id': 2, 'name': 'Clothes Title', 'imgurl': 'https://semantic-ui.com/images/wireframe/image.png'},
-    {'id': 3, 'name': 'Clothes Title', 'imgurl': 'https://semantic-ui.com/images/wireframe/image.png'},
-    {'id': 4, 'name': 'Clothes Title', 'imgurl': 'https://semantic-ui.com/images/wireframe/image.png'},
-    {'id': 5, 'name': 'Clothes Title', 'imgurl': 'https://semantic-ui.com/images/wireframe/image.png'},
-    {'id': 6, 'name': 'Clothes Title', 'imgurl': 'https://semantic-ui.com/images/wireframe/image.png'}
-  ]
-  constructor() { }
+export class ClothingComponent implements OnInit, OnDestroy {
+  clothes: Item[];
+  clothingServiceSubscription: Subscription;
+
+  constructor(private clothingService: ClothingService) { }
 
   ngOnInit() {
+    this.clothingServiceSubscription = this.clothingService.fetchClothingDetials().subscribe((clothingResponse: Clothing) => {
+      this.clothes = clothingResponse.clothingItems;
+      // emit this data to which ever component that needs it 
+      this.clothingService.emitClothingDetials(clothingResponse);
+    }, error =>{
+      // show ui some error
+      console.error('fetchClothingDetials error:', error)
+    },() =>{
+
+    })
   }
 
+  ngOnDestroy(): void {
+    this.clothingServiceSubscription.unsubscribe();
+  }
 }
