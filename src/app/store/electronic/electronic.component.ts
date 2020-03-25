@@ -1,27 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ElectronicService } from 'src/app/service/electronic.service';
+import { Item } from 'src/app/model/item.model';
 
 @Component({
   selector: 'app-electronic',
   templateUrl: './electronic.component.html',
   styleUrls: ['./electronic.component.css']
 })
-export class ElectronicComponent implements OnInit {
-  electronics = [
-    {'id': 1, 'name': 'Electronic Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/daniel.jpg'},
-    {'id': 2, 'name': 'Electronic Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/helen.jpg'},
-    {'id': 3, 'name': 'Electronic Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'},
-    {'id': 4, 'name': 'Electronic Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'},
-    {'id': 5, 'name': 'Electronic Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'},
-    {'id': 6, 'name': 'Electronic Title', 'imgurl': 'https://semantic-ui.com/images/avatar/large/elliot.jpg'}
-  ]
-  constructor(private router: Router) { 
+export class ElectronicComponent implements OnInit, OnDestroy {
+  electronicServiceSubscription: Subscription;
+  electronics: Item[];
+  
+  constructor(private router: Router, private electronicService: ElectronicService) { 
     const currentRouteUrl = this.router.url;
     console.log(currentRouteUrl);
   }
 
   ngOnInit() {
+    this.electronicServiceSubscription = this.electronicService.fetchElectronicDetials().subscribe(electronicResponse => {
+      this.electronics = electronicResponse.electronicItems;
+      // emit this data to which ever component that needs it 
+      this.electronicService.emitElectronicDetials(electronicResponse);
+    }, error =>{
+      // show ui some error
+      console.error('fetchElectronicDetials error:', error)
+    },() =>{
 
+    })
   }
 
+  ngOnDestroy(): void {
+    this.electronicServiceSubscription.unsubscribe();
+  }
 }

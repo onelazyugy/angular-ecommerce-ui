@@ -7,7 +7,10 @@
 export const environment = {
   production: false,
   storeUrl: 'http://localhost:3002/ecommerce/api/v1/store',
-  homeUrl: 'http://localhost:3002/ecommerce/api/v1/home'
+  homeUrl: 'http://localhost:3002/ecommerce/api/v1/home',
+  electronicUrl: 'http://localhost:3002/ecommerce/api/v1/electronic',
+  bookUrl: 'http://localhost:3002/ecommerce/api/v1/book',
+  clothingUrl: 'http://localhost:3002/ecommerce/api/v1/clothing'
 };
 
 /*

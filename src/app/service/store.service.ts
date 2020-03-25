@@ -10,8 +10,8 @@ import { environment } from '../../environments/environment';
 })
 export class StoreService {
     store: Store;
-    private homeSubject$ = new BehaviorSubject<Store>(this.store);
-    homeChange$ = this.homeSubject$.asObservable();
+    private storeSubject$ = new BehaviorSubject<Store>(this.store);
+    storeChange$ = this.storeSubject$.asObservable();
     
     constructor(private http: HttpClient){}
 
@@ -27,6 +27,6 @@ export class StoreService {
     }
 
     emitStoreDetials(store: Store) {
-        this.homeSubject$.next(store);
+        this.storeSubject$.next(store);
     }
 }
