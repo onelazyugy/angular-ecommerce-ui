@@ -10,7 +10,8 @@ export const environment = {
   homeUrl: 'http://localhost:3002/ecommerce/api/v1/home',
   electronicUrl: 'http://localhost:3002/ecommerce/api/v1/electronic',
   bookUrl: 'http://localhost:3002/ecommerce/api/v1/book',
-  clothingUrl: 'http://localhost:3002/ecommerce/api/v1/clothing'
+  clothingUrl: 'http://localhost:3002/ecommerce/api/v1/clothing',
+  itemDetailUrl: 'http://localhost:3002/ecommerce/api/v1/item-detail/'
 };
 
 /*

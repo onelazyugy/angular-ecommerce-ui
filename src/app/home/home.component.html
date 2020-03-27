@@ -2,6 +2,7 @@
   <div class="row">
     <div class="column">
       <div class="ui search">
+        <h4 class="ui horizontal divider header"><i class="search icon"></i>Search the entire store</h4>
         <div class="ui icon input" style="width: 100%;">
           <input class="prompt" type="text" placeholder="Search the entire store...">
           <i class="search icon"></i>
@@ -12,14 +13,14 @@
   </div>
   <div class="row">
     <div class="column">
-      <h1 class="ui header">new arrival items</h1>
+      <h4 class="ui horizontal divider header"><i class="tag icon"></i>new arrival items</h4>
       <div class="ui five stackable cards">
         <div class="card" *ngFor="let newArrivalItem of newArrivalItems">
-          <div [ngClass]="['image', 'item']" [routerLink]="['/item', newArrivalItem.id]">
+          <div [ngClass]="['image', 'item']" [routerLink]="['/item', newArrivalItem.id, newArrivalItem.category]">
             <img src="{{newArrivalItem.imgurl}}">
           </div>
           <div class="content" [ngClass]="item">
-            <a [routerLink]="['/item', newArrivalItem.id]">{{newArrivalItem.name}}</a>
+            <a [routerLink]="['/item', newArrivalItem.id, newArrivalItem.category]">{{newArrivalItem.name}}</a>
           </div>
           <div class="content" [ngClass]="item">
             {{newArrivalItem.price | currency}}
@@ -30,14 +31,14 @@
   </div>
   <div class="row">
     <div class="column">
-      <h1 class="ui header">new arrival items</h1>
+      <h4 class="ui horizontal divider header"><i class="tag icon"></i>new discounted items</h4>
       <div class="ui five stackable cards">
         <div class="card" *ngFor="let discountedItem of discountedItems">
-          <div [ngClass]="['image', 'item']" [routerLink]="['/item', discountedItem.id]">
+          <div [ngClass]="['image', 'item']" [routerLink]="['/item', discountedItem.id, discountedItem.category]">
             <img src="{{discountedItem.imgurl}}">
           </div>
           <div class="content" [ngClass]="item">
-            <a [routerLink]="['/item', discountedItem.id]">{{discountedItem.name}}</a>
+            <a [routerLink]="['/item', discountedItem.id, discountedItem.category]">{{discountedItem.name}}</a>
           </div>
           <div class="content" [ngClass]="item">
             {{discountedItem.price | currency}}

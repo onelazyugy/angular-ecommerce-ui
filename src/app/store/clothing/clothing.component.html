@@ -1,11 +1,11 @@
-<h1 class="ui header">Clothes</h1>
+<h4 class="ui horizontal divider header"><i class="tag icon"></i>Clothes</h4>
 <div class="ui three stackable cards">
     <div class="card" *ngFor="let cloth of clothes">
-        <div [ngClass]="['image', 'item']" [routerLink]="['/item', cloth.id]">
+        <div [ngClass]="['image', 'item']" [routerLink]="['/item', cloth.id, cloth.category]">
             <img src="{{cloth.imgurl}}">
         </div>
         <div class="content" [ngClass]="item">
-            <a [routerLink]="['/item', cloth.id]">{{cloth.name}}</a>
+            <a [routerLink]="['/item', cloth.id, cloth.category]">{{cloth.name}}</a>
         </div>
         <div class="content" [ngClass]="item">
             {{cloth.price | currency}}

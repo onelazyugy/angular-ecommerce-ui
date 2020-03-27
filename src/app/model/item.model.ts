@@ -6,6 +6,7 @@ export class Item implements Deserializable{
     imgurl: string;
     price: number;
     category: number;
+    description: string;
 
     deserialize(input: any): this {
         return Object.assign(this, input);

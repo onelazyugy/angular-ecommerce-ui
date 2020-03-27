@@ -1,1 +1,43 @@
-<p>itemdetail works!</p>
+<div *ngIf="itemDetail != undefined" class="ui stackable two column grid" style="padding: 10px;">
+    <div class="ten wide column">
+        <div>
+            <img class="ui fluid image" src="{{itemDetail.item.imgurl}}">
+        </div>
+    </div>
+    <div class="five wide column">
+        <h4 class="ui horizontal divider header"><i class="tag icon"></i>Item Description</h4>
+        <p>{{itemDetail.item.description}}</p>
+        <h4 class="ui horizontal divider header"><i class="bar chart icon"></i>Item Info</h4>
+        <table class="ui definition table">
+            <tbody>
+                <tr>
+                    <td class="two wide column">Name</td>
+                    <td>{{itemDetail.item.name}}</td>
+                </tr>
+                <tr>
+                    <td class="two wide column">Price</td>
+                    <td>{{itemDetail.item.price | currency}}</td>
+                </tr>
+                <tr>
+                    <td class="two wide column">Qty</td>
+                    <td>
+                        <select name="qty">
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                            <option value="three">3</option>
+                            <option value="four">4</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td>5 stars</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center aligned"><button class="positive ui button">ADD TO CARD</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

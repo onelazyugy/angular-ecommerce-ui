@@ -1,18 +1,14 @@
-<h1 class="ui header">Electronics</h1>
+<h4 class="ui horizontal divider header"><i class="tag icon"></i>Electronics</h4>
 <div class="ui three stackable cards">
     <div class="card" *ngFor="let electronic of electronics">
-        <!-- <div [ngClass]="['image', 'item']" [routerLink]="['/store/electronics', electronic.id]"> -->
-        <div [ngClass]="['image', 'item']" [routerLink]="['/item', electronic.id]">
+        <div [ngClass]="['image', 'item']" [routerLink]="['/item', electronic.id, electronic.category]">
             <img src="{{electronic.imgurl}}">
         </div>
         <div class="content" [ngClass]="item">
-            <a [routerLink]="['/item', electronic.id]">{{electronic.name}}</a>
+            <a [routerLink]="['/item', electronic.id, electronic.category]">{{electronic.name}}</a>
         </div>
         <div class="content" [ngClass]="item">
             {{electronic.price | currency}}
         </div>
-        <!-- <div class="extra content center aligned">
-            <button class="positive ui button">ADD TO CARD</button>
-        </div> -->
     </div>
 </div>

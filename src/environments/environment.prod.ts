@@ -4,5 +4,6 @@ export const environment = {
   homeUrl: 'http://prod-domain/ecommerce/api/v1/home/items',
   electronicUrl: 'http://prod-domain/ecommerce/api/v1/electronic',
   bookUrl: 'http://prod-domain/ecommerce/api/v1/book',
-  clothingUrl: 'http://prod-domain/ecommerce/api/v1/clothing'
+  clothingUrl: 'http://prod-domain/ecommerce/api/v1/clothing',
+  itemUrl: 'http://prod-domain/ecommerce/api/v1/item-detail/'
 };

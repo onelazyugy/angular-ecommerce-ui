@@ -1,14 +1,14 @@
 <div class="ui padded grid">
     <div class="row">
         <div class="column">
-            <h1 class="ui header">most viewed items</h1>
+            <h4 class="ui horizontal divider header"><i class="tag icon"></i>most viewed items</h4>
             <div class="ui five stackable cards">
                 <div class="card" *ngFor="let mostViewedItem of mostViewedItems">
-                    <div [ngClass]="['image', 'item']" [routerLink]="['/item', mostViewedItem.id]">
+                    <div [ngClass]="['image', 'item']" [routerLink]="['/item', mostViewedItem.id, mostViewedItem.category]">
                         <img src="{{mostViewedItem.imgurl}}">
                     </div>
                     <div class="content" [ngClass]="item">
-                        <a [routerLink]="['/item', mostViewedItem.id]">{{mostViewedItem.name}}</a>
+                        <a [routerLink]="['/item', mostViewedItem.id, mostViewedItem.category]">{{mostViewedItem.name}}</a>
                     </div>
                     <div class="content" [ngClass]="item">
                         {{mostViewedItem.price | currency}}
@@ -19,14 +19,14 @@
     </div>
     <div class="row">
         <div class="column">
-            <h1 class="ui header">recently viewed items</h1>
+            <h4 class="ui horizontal divider header"><i class="tag icon"></i>recently viewed items</h4>
             <div class="ui five stackable cards">
                 <div class="card" *ngFor="let recentlyViewedItem of recentlyViewedItems">
-                    <div [ngClass]="['image', 'item']" [routerLink]="['/item', recentlyViewedItem.id]">
+                    <div [ngClass]="['image', 'item']" [routerLink]="['/item', recentlyViewedItem.id, recentlyViewedItem.category]">
                         <img src="{{recentlyViewedItem.imgurl}}">
                     </div>
                     <div class="content" [ngClass]="item">
-                        <a [routerLink]="['/item', recentlyViewedItem.id]">{{recentlyViewedItem.name}}</a>
+                        <a [routerLink]="['/item', recentlyViewedItem.id, recentlyViewedItem.category]">{{recentlyViewedItem.name}}</a>
                     </div>
                     <div class="content" [ngClass]="item">
                         {{recentlyViewedItem.price | currency}}
