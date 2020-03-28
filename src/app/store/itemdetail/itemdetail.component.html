@@ -21,11 +21,8 @@
                 <tr>
                     <td class="two wide column">Qty</td>
                     <td>
-                        <select name="qty">
-                            <option value="one">1</option>
-                            <option value="two">2</option>
-                            <option value="three">3</option>
-                            <option value="four">4</option>
+                        <select name="qty" (change)="selectChangeHandler($event)">
+                            <option *ngFor="let q of qty" value="{{q.value}}">{{q.name}}</option>
                         </select>
                     </td>
                 </tr>
@@ -35,7 +32,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="center aligned"><button class="positive ui button">ADD TO CARD</button></td>
+                    <td class="center aligned"><button (click)="addToCart()" class="positive ui button">ADD TO CARD</button></td>
                 </tr>
             </tbody>
         </table>

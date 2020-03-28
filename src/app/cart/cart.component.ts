@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HomeService } from '../service/home.service';
 import { Subscription } from 'rxjs';
-import { Home } from '../model/home.model';
+import { Item } from '../model/item.model';
+import { ItemService } from '../service/item.service';
+import { CartService } from '../service/cart.service';
+import { CartDetail } from '../model/cart.detail.model';
 
 @Component({
   selector: 'app-cart',
@@ -9,21 +11,22 @@ import { Home } from '../model/home.model';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit, OnDestroy {
-  homeServiceSubscription: Subscription;
-  homeResponse: Home;
+  currentItemInCart: Item[];
+  cartServiceSubscription: Subscription;
+  cartDetail: CartDetail[] = [];
 
-  constructor(private homeService: HomeService) { }
+  constructor(private cartService: CartService) { }
   
   ngOnInit() {
-    this.homeServiceSubscription = this.homeService.homeChange$.subscribe(homeResponse => {
-      console.log('CART: ', homeResponse);
-      this.homeResponse = homeResponse;
+    this.cartServiceSubscription = this.cartService.cartChange$.subscribe((itemInCartDetail: CartDetail) => {
+      console.log('itemInCartDetail: ', itemInCartDetail);
+      this.cartDetail.push(itemInCartDetail);
     }, error => {
 
     });
   }
 
   ngOnDestroy(): void {
-    this.homeServiceSubscription.unsubscribe();
+    this.cartServiceSubscription.unsubscribe();
   }
 }

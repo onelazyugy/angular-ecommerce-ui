@@ -15,8 +15,8 @@ export class ItemService {
     
     constructor(private http: HttpClient){}
 
-    fetchItemDetials(): Observable<ItemDetail> {
-        return this.http.get<ItemDetail>(`${environment.itemDetailUrl}1/104`)
+    fetchItemDetials(itemDetailsRouteParam: any): Observable<ItemDetail> {
+        return this.http.get<ItemDetail>(`${environment.itemDetailUrl}/${itemDetailsRouteParam.id}/${itemDetailsRouteParam.category}`)
         .pipe(
             map(data => new ItemDetail().deserialize(data)),
             catchError(error => {
@@ -26,7 +26,7 @@ export class ItemService {
         );
     }
 
-    emitItemDetials(itemDetail: ItemDetail) {
-        this.itemDetailSubject$.next(itemDetail);
+    emitItemDetials(item: ItemDetail) {
+        this.itemDetailSubject$.next(item);
     }
 }
