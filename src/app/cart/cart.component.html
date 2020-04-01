@@ -1,2 +1,40 @@
-<p>cart works!</p>
-<p>{{cartDetail | json}}</p>
+<div class="ui stackable two column grid" style="padding: 10px;">
+    <div class="ten wide column">
+        <div class="ui padded grid">
+            <div class="row">
+                <div class="column">
+                    <h4 class="ui horizontal divider header"><i class="shopping cart icon"></i>Shopping Cart</h4>
+                    <div *ngIf="isCartEmpty">
+                        No item in cart!
+                    </div> 
+                    <div *ngIf="!isCartEmpty" class="ui two stackable cards">
+                        <div class="card" *ngFor="let cartDetail of cartDetails">
+                            <div [ngClass]="['image', 'item']" [routerLink]="['/item', cartDetail.item.id, cartDetail.item.category]">
+                                <img src="{{cartDetail.item.imgurl}}">
+                            </div>
+                            <div class="content" [ngClass]="item">
+                                <a [routerLink]="['/item', cartDetail.item.id, cartDetail.item.category]">{{cartDetail.item.name}}</a>
+                            </div>
+                            <div class="content" [ngClass]="item">
+                                <div class="ui tag labels">
+                                    <a class="ui red label">
+                                        qyt: {{cartDetail.qty}}
+                                    </a>
+                                    <a class="ui green label">
+                                        price: {{cartDetail.item.price | currency}}
+                                    </a>
+                                </div>
+                                <!-- price: {{cartDetail.item.price | currency}} | qyt: {{cartDetail.qty}} -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="five wide column">
+        <h4 class="ui horizontal divider header"><i class="bar chart icon"></i>Cart Detail</h4>
+        <p>Subtotal ({{totalItem}} items): {{ subTotal | currency}}</p>
+        <button class="ui green button">Proceed to checkout</button>
+    </div>
+</div>

@@ -38,8 +38,9 @@ export class ItemdetailComponent implements OnInit, OnDestroy {
   }
 
   addToCart() {
-    const itemToBeAddedToCart = new CartDetail().deserialize({itemToAddToCart: this.itemDetail.item, qty: this.qtySelected});
-    this.cartService.emitItemAddedToCart(itemToBeAddedToCart);
+    const itemAdded = {item: this.itemDetail.item, qty: this.qtySelected};
+    const cartDeatil = new CartDetail().deserialize(itemAdded);
+    this.cartService.emitCart(cartDeatil);
   }
 
   selectChangeHandler(event) {

@@ -10,10 +10,12 @@ import { CartDetail } from '../model/cart.detail.model';
 export class CartService {
     private cartSubject$ = new BehaviorSubject<Object>(CartDetail);
     cartChange$ = this.cartSubject$.asObservable();
+    private cartDetails: CartDetail[] = [];
     
     constructor(private itemService: ItemService){}
 
-    emitItemAddedToCart(itemToAddToCart: CartDetail) {
-        this.cartSubject$.next(itemToAddToCart);
+    emitCart(cartDetail: CartDetail) {
+        this.cartDetails.push(cartDetail);
+        this.cartSubject$.next(this.cartDetails);
     }
 }
