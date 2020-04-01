@@ -16,15 +16,17 @@
                                 <a [routerLink]="['/item', cartDetail.item.id, cartDetail.item.category]">{{cartDetail.item.name}}</a>
                             </div>
                             <div class="content" [ngClass]="item">
-                                <div class="ui tag labels">
-                                    <a class="ui red label">
+                                <div class="ui circular labels left aligned">
+                                    <a class="ui label">
                                         qyt: {{cartDetail.qty}}
                                     </a>
-                                    <a class="ui green label">
+                                    <a class="ui label">
                                         price: {{cartDetail.item.price | currency}}
                                     </a>
                                 </div>
-                                <!-- price: {{cartDetail.item.price | currency}} | qyt: {{cartDetail.qty}} -->
+                                <!-- <div class="right aligned">
+                                    <span>delete</span>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -32,7 +34,7 @@
             </div>
         </div>
     </div>
-    <div class="five wide column">
+    <div *ngIf="!isCartEmpty" class="five wide column">
         <h4 class="ui horizontal divider header"><i class="bar chart icon"></i>Cart Detail</h4>
         <p>Subtotal ({{totalItem}} items): {{ subTotal | currency}}</p>
         <button class="ui green button">Proceed to checkout</button>

@@ -25,7 +25,6 @@ export class CartComponent implements OnInit, OnDestroy {
       this.cartDetails = cartDetails;
       this.isCartEmpty = this.cartDetails.length === 0 ? true : false;
       this.totalItem = this.cartDetails.length;
-      // let total = 0;
       if(!this.isCartEmpty) {
         this.cartDetails.map(detail=>{
           const qty = detail.qty;
@@ -33,16 +32,8 @@ export class CartComponent implements OnInit, OnDestroy {
           this.subTotal = (this.subTotal + (qty * price));
         })
       }
-      // const flat = [...this.cartDetails];
-      // for(let detail of this.cartDetails) {
-      //   this.subTotal = this.subTotal + (detail.qty * detail.item.price);
-      // }
-      // console.log('flat: ', flat);
-      // this.cartDetails.map(detail => {
-      //   this.subTotal = this.subTotal + (detail.qty * detail.item.price);
-      // });
     }, error => {
-
+      //TODO: error on ui
     });
   }
 
