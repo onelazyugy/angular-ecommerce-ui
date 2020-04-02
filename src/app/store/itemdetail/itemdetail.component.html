@@ -38,7 +38,7 @@
         </table>
         <div *ngIf="isAddItemToCartSuccess" class="ui green message">
             <i class="close icon" (click)="close()"></i>
-            item added to cart successfully
+            item added to cart successfully <a [routerLink]="['/cart']">(go to cart)</a>
         </div>
     </div>
 </div>

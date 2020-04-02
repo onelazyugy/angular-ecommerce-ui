@@ -21,7 +21,7 @@
                                       <tr>
                                         <td><div class="ui label">qyt: {{cartDetail.qty}}</div></td>
                                         <td><div class="ui label">price: {{cartDetail.item.price | currency}}</div></td>
-                                        <td>remove</td>
+                                        <td><span (click)="removeItem(cartDetail)">remove</span></td>
                                       </tr>
                                     </tbody>
                                   </table>                                  

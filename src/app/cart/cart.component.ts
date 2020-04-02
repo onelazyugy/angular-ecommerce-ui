@@ -29,12 +29,17 @@ export class CartComponent implements OnInit, OnDestroy {
         this.cartDetails.map(detail=>{
           const qty = detail.qty;
           const price = detail.item.price;
-          this.subTotal = (this.subTotal + (qty * price));
+          this.subTotal = (this.subTotal + (qty * price)); // TODO: subTotal still exist after item removed
         })
       }
     }, error => {
       //TODO: error on ui
     });
+  }
+
+  removeItem(cartDetail: CartDetail) {
+    this.cartService.removeItem(cartDetail);
+    // TODO: subTotal still exist after item removed
   }
 
   ngOnDestroy(): void {
