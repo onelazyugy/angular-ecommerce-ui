@@ -15,18 +15,16 @@
                             <div class="content" [ngClass]="item">
                                 <a [routerLink]="['/item', cartDetail.item.id, cartDetail.item.category]">{{cartDetail.item.name}}</a>
                             </div>
-                            <div class="content" [ngClass]="item">
-                                <div class="ui circular labels left aligned">
-                                    <a class="ui label">
-                                        qyt: {{cartDetail.qty}}
-                                    </a>
-                                    <a class="ui label">
-                                        price: {{cartDetail.item.price | currency}}
-                                    </a>
-                                </div>
-                                <!-- <div class="right aligned">
-                                    <span>delete</span>
-                                </div> -->
+                            <div class="content" [ngClass]="item">     
+                                <table class="ui very basic table">
+                                    <tbody>
+                                      <tr>
+                                        <td><div class="ui label">qyt: {{cartDetail.qty}}</div></td>
+                                        <td><div class="ui label">price: {{cartDetail.item.price | currency}}</div></td>
+                                        <td>remove</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>                                  
                             </div>
                         </div>
                     </div>

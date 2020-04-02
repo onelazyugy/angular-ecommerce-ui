@@ -36,5 +36,9 @@
                 </tr>
             </tbody>
         </table>
+        <div *ngIf="isAddItemToCartSuccess" class="ui green message">
+            <i class="close icon" (click)="close()"></i>
+            item added to cart successfully
+        </div>
     </div>
 </div>
