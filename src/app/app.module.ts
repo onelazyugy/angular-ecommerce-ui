@@ -11,6 +11,8 @@ import { CartModule } from './cart/cart.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { CompleteModule } from './complete/complete.module';
+import { LoginModule } from './login/login.module';
+import { SignUpModule } from './signup/signup.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CompleteModule } from './complete/complete.module';
     CartModule,
     ToolbarModule,
     CheckoutModule,
-    CompleteModule
+    CompleteModule,
+    LoginModule,
+    SignUpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

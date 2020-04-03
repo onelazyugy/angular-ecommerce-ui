@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +11,8 @@ import { ItemdetailComponent } from './store/itemdetail/itemdetail.component';
 import { StoreshowcaseComponent } from './store/storeshowcase/storeshowcase.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CompleteComponent } from './complete/complete.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -48,6 +50,14 @@ const routes: Routes = [
   {
     path: 'complete',
     component: CompleteComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignupComponent
   },
   {
     path: 'not-found', 
