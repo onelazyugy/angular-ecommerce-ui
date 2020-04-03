@@ -1,28 +1,28 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Item } from '../model/item.model';
-import { ItemService } from '../service/item.service';
 import { CartService } from '../service/cart.service';
+import { Subscription } from 'rxjs';
 import { CartDetail } from '../model/cart.detail.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.css']
 })
-export class CartComponent implements OnInit, OnDestroy {
-  currentItemInCart: Item[];
+export class CheckoutComponent implements OnInit, OnDestroy {
   cartServiceSubscription: Subscription;
   cartDetails: CartDetail[] = [];
   isCartEmpty: boolean = false;
   totalItem: number = 0;
   subTotal: number = 0;
+  totalTax: number = 0;
+  total: number = 0;
 
   constructor(private cartService: CartService, private router: Router) { }
-  
+
   ngOnInit() {
     this.cartServiceSubscription = this.cartService.cartChange$.subscribe((cartDetails: CartDetail[]) => {
+      console.log(cartDetails);
       this.cartDetails = cartDetails;
       this.isCartEmpty = this.cartDetails.length === 0 ? true : false;
       this.totalItem = this.cartDetails.length;
@@ -34,18 +34,15 @@ export class CartComponent implements OnInit, OnDestroy {
           this.subTotal = (this.subTotal + (qty * price));
         })
       }
+      this.totalTax = (this.subTotal * .07);
+      this.total = (this.totalTax + this.subTotal)
     }, error => {
       //TODO: error on ui
     });
   }
 
-  removeItem(cartDetail: CartDetail) {
-    this.cartService.removeItem(cartDetail);
-    // TODO: subTotal still exist after item removed
-  }
-
-  checkout() {
-    this.router.navigate(['/checkout']);
+  submitOrder() {
+    this.router.navigate(['/complete']);
   }
 
   ngOnDestroy(): void {

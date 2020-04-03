@@ -35,6 +35,6 @@
     <div *ngIf="!isCartEmpty" class="five wide column">
         <h4 class="ui horizontal divider header"><i class="bar chart icon"></i>Cart Detail</h4>
         <p>Subtotal ({{totalItem}} items): {{ subTotal | currency}}</p>
-        <button class="ui green button">Proceed to checkout</button>
+        <button class="ui green button" (click)="checkout()">Proceed to checkout</button>
     </div>
 </div>

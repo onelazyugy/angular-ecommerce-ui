@@ -9,6 +9,8 @@ import { HomeModule } from './home/home.module';
 import { StoreModule } from './store/store.module';
 import { CartModule } from './cart/cart.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
+import { CheckoutModule } from './checkout/checkout.module';
+import { CompleteModule } from './complete/complete.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ToolbarModule } from './toolbar/toolbar.module';
     HomeModule,
     StoreModule,
     CartModule,
-    ToolbarModule
+    ToolbarModule,
+    CheckoutModule,
+    CompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

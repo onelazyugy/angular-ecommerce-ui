@@ -9,6 +9,8 @@ import { BookComponent } from './store/book/book.component';
 import { ClothingComponent } from './store/clothing/clothing.component';
 import { ItemdetailComponent } from './store/itemdetail/itemdetail.component';
 import { StoreshowcaseComponent } from './store/storeshowcase/storeshowcase.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CompleteComponent } from './complete/complete.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,14 @@ const routes: Routes = [
   {
     path: 'cart', 
     component: CartComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
+  },
+  {
+    path: 'complete',
+    component: CompleteComponent
   },
   {
     path: 'not-found', 
