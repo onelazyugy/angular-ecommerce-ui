@@ -5,5 +5,6 @@ export const environment = {
     electronicUrl: 'http://dev-domain:8181/ecommerce/api/v1/electronic',
     bookUrl: 'http://dev-domain:8181/ecommerce/api/v1/book',
     clothingUrl: 'http://dev-domain:8181/ecommerce/api/v1/clothing',
-    itemUrl: 'http://dev-domain:8181/ecommerce/api/v1/item-detail/'
+    itemUrl: 'http://dev-domain:8181/ecommerce/api/v1/item-detail/',
+    signuplUrl: 'http://dev-domain:8181/ecommerce/api/v1/register'
   };

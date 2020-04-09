@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var proxy = require('http-proxy-middleware');
+var bodyParser = require('body-parser');
 var cors = require('cors');
 // var corsHandler = require('./middleware/cors-handler')
 
@@ -23,11 +24,6 @@ app.set('view engine', 'jade');
 console.log('WHITE LISTING HOST: ', process.env.HOST);
 app.use(cors({credentials: true, origin: process.env.HOST}));
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // proxy to java backend service
 app.use(
@@ -42,6 +38,14 @@ app.use(
     })
 );
 //------------------------
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser);
+
 
 // CORS
 // app.get('/backend/api/v1/angular', function(req, res, next){
