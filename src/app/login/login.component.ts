@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: ''
   }
   loginSubscription: Subscription;
+  message: string;
+  isError: boolean = false;
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -26,17 +28,18 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.user.email = this.loginForm.value.email;
     this.user.password = this.loginForm.value.password;
     this.userService.login(this.user).subscribe(response =>{
-      if(response.status.statusCd === 200 && response.success) {
+      if(response && response.status !== undefined && response.status.statusCd === 200 && response.success) {
         this.loginForm.reset();
-        //put in localstorage
         localStorage.setItem("user", JSON.stringify(response.user));
         this.userService.emitLoginUserDetail(response.user);
         this.router.navigate(['/']);
       } else {
-        //TODO: display error message
+        this.isError = true;
+        this.message = 'invalid login, please try again!';
       }
     }, error =>{
-      console.error(error);
+      this.isError = true;
+      this.message = error.error.message;
     });
   }
 

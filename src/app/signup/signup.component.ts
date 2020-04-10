@@ -17,6 +17,8 @@ export class SignupComponent implements OnInit, OnDestroy {
     confirmPassword: ''
   }
   userSignupSubscription: Subscription;
+  message: string;
+  isError: boolean = false;
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -29,14 +31,16 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.user.confirmPassword = this.signupForm.value.confirmPassword;
     //TODO: validation
     this.userSignupSubscription = this.userService.signup(this.user).subscribe(response => {
-      if(response.status.statusCd === 200 && response.success) {
+      if(response && response.status !== undefined && response.status.statusCd === 200 && response.success) {
         this.signupForm.reset();
         this.router.navigate(['/login']);
       } else {
-        //TODO: display some error
+        this.isError = true;
+        this.message = 'please try again!';
       }
     }, error =>{
-      console.error(error);
+      this.isError = true;
+      this.message = error.error.message;
     })
   }
 

@@ -1,5 +1,8 @@
 <div class="ui stackable four column grid" style="padding: 10px;">
     <div class="column">
+        <div *ngIf="isError" class="ui red message">
+            {{message}}
+        </div>
         <form class="ui form" (ngSubmit)="onSubmit()" #signupForm="ngForm">
             <div class="ui form">
                 <div class="field">
