@@ -17,7 +17,7 @@ export class UserService {
     constructor(private http: HttpClient){}
 
     signup(user: any): Observable<UserDetail> {
-        return this.http.post<UserDetail>(environment.signuplUrl, user)
+        return this.http.post<UserDetail>(environment.signupUrl, user)
         .pipe(
             map(data => new UserDetail().deserialize(data)),
             catchError(error => {
@@ -26,7 +26,17 @@ export class UserService {
         );
     }
 
-    // emitBookDetials(book: Book) {
-    //     this.bookSubject$.next(book);
-    // }
+    login(user: any): Observable<UserDetail> {
+        return this.http.post<UserDetail>(environment.loginUrl, user)
+        .pipe(
+            map(data => new UserDetail().deserialize(data)),
+            catchError(error => {
+                return throwError(error);
+            })
+        );
+    }
+
+    emitLoginUserDetail(user: User) {
+        this.userSubject$.next(user);
+    }
 }

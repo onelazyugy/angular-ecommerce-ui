@@ -12,7 +12,8 @@ export const environment = {
   bookUrl: 'http://localhost:3002/ecommerce/api/v1/book',
   clothingUrl: 'http://localhost:3002/ecommerce/api/v1/clothing',
   itemDetailUrl: 'http://localhost:3002/ecommerce/api/v1/item-detail/',
-  signuplUrl: 'http://localhost:3002/ecommerce/api/v1/register'
+  signupUrl: 'http://localhost:3002/ecommerce/api/v1/register',
+  loginUrl: 'http://localhost:3002/ecommerce/api/v1/login',
 };
 
 /*

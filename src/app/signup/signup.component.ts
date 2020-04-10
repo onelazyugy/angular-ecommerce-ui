@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 import { Subscription } from 'rxjs';
-import { error } from 'protractor';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +16,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     password: '',
     confirmPassword: ''
   }
-  userSubscription: Subscription;
+  userSignupSubscription: Subscription;
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -27,10 +26,15 @@ export class SignupComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.user.email = this.signupForm.value.email;
     this.user.password = this.signupForm.value.password;
-    // TODO: this.user, need to use User instead of any over service layer
-    this.userSubscription = this.userService.signup(this.user).subscribe(user => {
-      console.log('signup response:', user);
-      this.signupForm.reset();
+    this.user.confirmPassword = this.signupForm.value.confirmPassword;
+    //TODO: validation
+    this.userSignupSubscription = this.userService.signup(this.user).subscribe(response => {
+      if(response.status.statusCd === 200 && response.success) {
+        this.signupForm.reset();
+        this.router.navigate(['/login']);
+      } else {
+        //TODO: display some error
+      }
     }, error =>{
       console.error(error);
     })
@@ -53,6 +57,8 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.userSubscription.unsubscribe();
+    if(this.userSignupSubscription !== undefined) {
+      this.userSignupSubscription.unsubscribe();
+    }
   }
 }

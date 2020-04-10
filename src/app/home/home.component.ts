@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.homeServiceSubscription = this.homeService.fetchHomeDetials().subscribe(homeResponse => {
-      console.log('home response:', homeResponse);
       this.newArrivalItems = homeResponse.newArrivalItems;
       this.discountedItems = homeResponse.discountedItems;
       // emit this data to which ever component that needs it 
