@@ -13,6 +13,7 @@ export class UserService {
     user: User;
     private userSubject$ = new BehaviorSubject<User>(this.user);
     userChange$ = this.userSubject$.asObservable();
+    isLoggedIn = false;
     
     constructor(private http: HttpClient){}
 
@@ -34,6 +35,10 @@ export class UserService {
                 return throwError(error);
             })
         );
+    }
+
+    logout() {
+        this.userSubject$.next(null);
     }
 
     emitLoginUserDetail(user: User) {

@@ -3,6 +3,8 @@ import { UserService } from '../service/user.service';
 import { Subscription } from 'rxjs';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
+import { CartService } from '../service/cart.service';
+import { CartDetail } from '../model/cart.detail.model';
 
 @Component({
   selector: 'app-toolbar',
@@ -20,8 +22,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   }
   loggedInUser: User;
   userSubscription: Subscription;
+  cartServiceSubscription: Subscription;
+  totalItem: number = 0;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private cartService: CartService, private router: Router) { }
 
   ngOnInit() {
     this.userSubscription = this.userService.userChange$.subscribe(user => {
@@ -31,10 +35,18 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         this.loggedInUser = user;
       }
     });
+
+    this.cartServiceSubscription = this.cartService.cartChange$.subscribe((cartDetails: CartDetail[]) =>{
+      this.totalItem = cartDetails.length;
+    }, error => {
+      console.error(error);
+    })
   }
 
   logout() {
+    this.userService.logout();
     localStorage.removeItem('user');
+    localStorage.removeItem('lastRoute');
     this.router.navigate(['/login']);
     this.loggedInUser = undefined;
   }
@@ -42,6 +54,9 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if(this.userSubscription !== undefined) {
       this.userSubscription.unsubscribe();
+    }
+    if(this.cartServiceSubscription !== undefined) {
+      this.cartServiceSubscription.unsubscribe();
     }
   }
 }

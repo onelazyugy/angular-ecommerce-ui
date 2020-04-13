@@ -13,6 +13,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CompleteComponent } from './complete/complete.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { CheckoutRouteGuard } from './service/checkout-guard.service';
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
   },
   {
     path: 'checkout',
+    canActivate: [CheckoutRouteGuard],
     component: CheckoutComponent
   },
   {

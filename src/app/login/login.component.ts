@@ -31,7 +31,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       if(response && response.status !== undefined && response.status.statusCd === 200 && response.success) {
         this.loginForm.reset();
         localStorage.setItem("user", JSON.stringify(response.user));
+        //TODO: save the JWT into localStorage
+        // npm install --save @auth0/angular-jwt
         this.userService.emitLoginUserDetail(response.user);
+        //TODO: if localStorage has lastRoute, then redirect user there, else navigate to /
         this.router.navigate(['/']);
       } else {
         this.isError = true;

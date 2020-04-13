@@ -6,6 +6,7 @@
             </div>
             <div class="item" *ngFor="let toolbarMenu of toolbarItems.menus">
                 <a [routerLink]="[toolbarMenu.route]"><i class="{{toolbarMenu.icon}}"></i>{{toolbarMenu.name}}</a>
+                <span *ngIf="toolbarMenu.route === '/cart' && totalItem > 0">&nbsp;({{totalItem}})</span>
             </div>
             <div class="right menu">
                 <a class="ui item" *ngIf="loggedInUser === undefined">
