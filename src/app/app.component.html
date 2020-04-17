@@ -12,3 +12,16 @@
   </div>
 </div>
 
+<!-- timeout modal -->
+<div class="ui modal">
+  <div class="header">
+    You Have Been Idle!
+  </div>
+  <div class="modal-body">
+    {{idleState}}
+ </div>
+  <div class="actions">
+    <button type="button" (click)="logout()" class="ui button red">Logout</button>
+    <button type="button" (click)="stay()" class="ui button green">Stay</button>
+  </div>
+</div>
