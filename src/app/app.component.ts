@@ -18,10 +18,10 @@ export class AppComponent {
   lastPing?: Date = null;
 
   constructor(private idle: Idle, private keepalive: Keepalive, private router: Router, private idleService: IdleService) {
-      // sets an idle timeout of 5 seconds, for testing purposes.
-    idle.setIdle(5);
+      // sets an idle timeout of 15 minute, for testing purposes.
+    idle.setIdle(900);
     // set the count down after the modal has opened
-    idle.setTimeout(15); //15 seconds
+    idle.setTimeout(5); //15 seconds
     // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
     idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
