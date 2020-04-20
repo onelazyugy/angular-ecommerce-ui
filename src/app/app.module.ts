@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
 import { MomentModule } from 'angular2-moment'; // optional, provides moment-style pipes for date formatting
@@ -15,6 +15,7 @@ import { CheckoutModule } from './checkout/checkout.module';
 import { CompleteModule } from './complete/complete.module';
 import { LoginModule } from './login/login.module';
 import { SignUpModule } from './signup/signup.module';
+import { HttpRequestInterceptor } from './helper/http-request.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,13 @@ import { SignUpModule } from './signup/signup.module';
     NgIdleKeepaliveModule.forRoot(),
     MomentModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

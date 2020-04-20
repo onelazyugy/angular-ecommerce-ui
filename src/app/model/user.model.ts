@@ -7,6 +7,7 @@ export class User implements Deserializable {
     password: string;
     signupDate: string;
     order: Order;
+    roles: [];
 
     deserialize(input: any): this {
         Object.assign(this, input);
@@ -15,6 +16,7 @@ export class User implements Deserializable {
         this.password = input.password;
         this.signupDate = input.signupDate;
         this.order = input.order;
+        this.roles = input.roles;
         return this;
     }
 }

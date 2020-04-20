@@ -41,6 +41,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   submitOrder() {
+    //TODO: need to call /submit-order api. call only if jwt is present, so need a guard to check so that the interceptor can send the token
     this.router.navigate(['/complete']);
   }
 

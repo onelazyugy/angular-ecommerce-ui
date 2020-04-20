@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.user.confirmPassword = this.signupForm.value.confirmPassword;
     //TODO: validation
     this.userSignupSubscription = this.userService.signup(this.user).subscribe(response => {
-      if(response && response.status !== undefined && response.status.statusCd === 200 && response.success) {
+      if(response && response.status !== undefined && response.status.statusCd === 200) {
         this.signupForm.reset();
         this.router.navigate(['/login']);
       } else {
