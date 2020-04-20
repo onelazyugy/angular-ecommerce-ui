@@ -29,10 +29,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userSubscription = this.userService.userChange$.subscribe(user => {
-      if(user === undefined && localStorage.getItem('user')) {
+      if(JSON.parse(localStorage.getItem('user')) !== null) {
         this.loggedInUser = JSON.parse(localStorage.getItem('user'));
       } else {
-        this.loggedInUser = user;
+        this.router.navigate(['/login']);
       }
     });
 

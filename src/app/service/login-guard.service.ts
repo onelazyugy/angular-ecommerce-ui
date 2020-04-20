@@ -4,15 +4,16 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-export class CheckoutRouteGuard implements CanActivate {
+export class LoginRouteGuard implements CanActivate {
     constructor(private router: Router) {}
 
     canActivate(): boolean {
-        // if no jwt token, redirect to /login, else process to checkout screen
+        // if jwt token exist, redirect to home screen, else go to login screen
+        // this is the case where user is already logged in but try to access /login route
         if(JSON.parse(localStorage.getItem('user')) !== null && JSON.parse(localStorage.getItem('user')).token.accessToken) {
-            return true;
+            this.router.navigate(['/']);
         } else {
-            this.router.navigate(['/login']);
+            return true;
         }
       }
 }
