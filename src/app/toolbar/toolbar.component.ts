@@ -31,9 +31,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     this.userSubscription = this.userService.userChange$.subscribe(user => {
       if(JSON.parse(localStorage.getItem('user')) !== null) {
         this.loggedInUser = JSON.parse(localStorage.getItem('user'));
-      } else {
-        this.router.navigate(['/login']);
-      }
+      } 
+      // else {
+      //   this.router.navigate(['/login']);
+      // }
     });
 
     this.cartServiceSubscription = this.cartService.cartChange$.subscribe((cartDetails: CartDetail[]) =>{

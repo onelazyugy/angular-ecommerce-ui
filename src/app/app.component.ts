@@ -19,9 +19,9 @@ export class AppComponent {
 
   constructor(private idle: Idle, private keepalive: Keepalive, private router: Router, private idleService: IdleService) {
       // sets an idle timeout of 15 minute, for testing purposes.
-    idle.setIdle(900);
+    idle.setIdle(900); //900
     // set the count down after the modal has opened
-    idle.setTimeout(5); //15 seconds
+    idle.setTimeout(5); //5 seconds
     // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
     idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
@@ -39,6 +39,9 @@ export class AppComponent {
       this.idleState = 'Timed out!';
       this.timedOut = true;
       console.log(this.idleState);
+      //clear token before going to login in otherwise login guard will redirect to '/' route
+      //TODO: need to trigger toolbar compnent to remove display email
+      localStorage.removeItem('user');
       this.router.navigate(['/login']);
     });
     
@@ -94,6 +97,9 @@ export class AppComponent {
       .modal('hide')
     ;
     this.idleService.setUserLoggedIn(false);
+    //clear token before going to login in otherwise login guard will redirect to '/' route
+    //TODO: need to trigger toolbar compnent to remove display email
+    localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 }
