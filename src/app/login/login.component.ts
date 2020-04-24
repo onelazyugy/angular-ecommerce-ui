@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UserService } from '../service/user.service';
 import { IdleService } from '../service/idle.service';
+import { User } from '../model/user.model';
+import { LoginUserResponse } from '../model/response/login-user-response.model';
 
 @Component({
   selector: 'app-login',
@@ -28,13 +30,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.user.email = this.loginForm.value.email;
     this.user.password = this.loginForm.value.password;
-    this.userService.login(this.user).subscribe(response =>{
-      if(response && response.status !== undefined && response.status.statusCd === 200) {
+
+    this.userService.login({'user': this.user}).subscribe((response: LoginUserResponse) =>{
+      if(response && response.status !== undefined && response.status.statusCd === 200 && response.success) {
         this.loginForm.reset();
-        localStorage.setItem("user", JSON.stringify(response));
+        localStorage.setItem("user", JSON.stringify({"accessToken": response.token.accessToken, "email": response.email}));
         //TODO: save the JWT into localStorage
         // npm install --save @auth0/angular-jwt
-        this.userService.emitLoginUserDetail(response.user);
+        this.userService.emitLoginUserDetail(response);
         //TODO: if localStorage has lastRoute, then redirect user there, else navigate to /
 
 

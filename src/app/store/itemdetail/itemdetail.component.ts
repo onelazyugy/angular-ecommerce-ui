@@ -2,9 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ItemService } from 'src/app/service/item.service';
 import { Subscription } from 'rxjs';
 import { ItemDetail } from 'src/app/model/item.detail.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { CartDetail } from 'src/app/model/cart.detail.model';
+import { AddItemToCartResponse } from 'src/app/model/add-item-to-cart-response.model';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-itemdetail',
@@ -39,11 +41,29 @@ export class ItemdetailComponent implements OnInit, OnDestroy {
   }
 
   addToCart() {
-    const itemAdded = {item: this.itemDetail.item, qty: this.qtySelected};
-    const cartDeatil = new CartDetail().deserialize(itemAdded);
-    this.cartService.emitCart(cartDeatil);
-    //TODO: local storage?
-    this.isAddItemToCartSuccess = true;
+    //guarantee to exist if user has logged in
+    const id = JSON.parse(localStorage.getItem('user')).user.id;
+    const email = JSON.parse(localStorage.getItem('user')).user.email;
+    let user = {id: id, email: email};
+    const item = {item: this.itemDetail.item, qty: this.qtySelected, user: user};
+    let cartDeatil = new CartDetail().deserialize(item);
+    
+    
+    //TODO: local storage for guess user?
+
+    
+    this.cartService.addItemToCart(cartDeatil).subscribe((response: AddItemToCartResponse) => {
+      console.log('added item to cart: ', response);
+      //TODO: 
+      if(response.status.statusCd === 200) {
+        this.cartService.emitCart(cartDeatil);
+        this.isAddItemToCartSuccess = true;
+      }
+    }, error => {
+      //TODO:
+      this.isAddItemToCartSuccess = false;
+    });
+    
   }
 
   close() {

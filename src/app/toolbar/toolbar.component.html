@@ -16,7 +16,7 @@
                     <a (click)="logout()" [routerLink]="['sign-out']"><i class="sign-out icon"></i>Logout</a>
                 </a>
                 <a class="ui item" *ngIf="loggedInUser !== undefined">
-                    <a [routerLink]="['admin']"><i class="user circle icon green"></i>{{loggedInUser.user.email}}</a>
+                    <a [routerLink]="['admin']"><i class="user circle icon green"></i>{{loggedInUser.email}}</a>
                 </a>
             </div>
         </div>

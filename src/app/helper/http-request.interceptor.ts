@@ -15,7 +15,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     }
 
     addAuthenticationToken(request) {
-        const accessToken = JSON.parse(localStorage.getItem('user')) === null ? null : JSON.parse(localStorage.getItem('user')).token.accessToken;
+        const accessToken = JSON.parse(localStorage.getItem('user')) === null ? null : JSON.parse(localStorage.getItem('user')).accessToken;
         // no need to send token since this is login
         if (accessToken === null && this.router.url === '/login') {
             return request;
