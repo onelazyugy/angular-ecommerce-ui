@@ -5,8 +5,8 @@ import _ from 'lodash';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { AddItemToCartRequest } from '../model/add-item-to-cart-request.model';
-import { AddItemToCartResponse } from '../model/add-item-to-cart-response.model';
+import { AddItemToCartRequest } from '../model/request/add-item-to-cart-request.model';
+import { AddItemToCartResponse } from '../model/response/add-item-to-cart-response.model';
 
 @Injectable({
     providedIn: 'root'

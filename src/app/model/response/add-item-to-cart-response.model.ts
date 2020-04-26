@@ -1,6 +1,6 @@
-import { Deserializable } from './deserializable.model';
-import { Status } from './status.model';
-import { CartItem } from './cart-item.model';
+import { Deserializable } from '../deserializable.model';
+import { Status } from '../status.model';
+import { CartItem } from '../cart-item.model';
 
 export class AddItemToCartResponse implements Deserializable {
     status: Status;

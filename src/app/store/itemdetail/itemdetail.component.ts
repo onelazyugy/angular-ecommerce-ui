@@ -5,7 +5,7 @@ import { ItemDetail } from 'src/app/model/item.detail.model';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { CartDetail } from 'src/app/model/cart.detail.model';
-import { AddItemToCartResponse } from 'src/app/model/add-item-to-cart-response.model';
+import { AddItemToCartResponse } from 'src/app/model/response/add-item-to-cart-response.model';
 import { User } from 'src/app/model/user.model';
 
 @Component({
@@ -42,8 +42,8 @@ export class ItemdetailComponent implements OnInit, OnDestroy {
 
   addToCart() {
     //guarantee to exist if user has logged in
-    const id = JSON.parse(localStorage.getItem('user')).user.id;
-    const email = JSON.parse(localStorage.getItem('user')).user.email;
+    const id = JSON.parse(localStorage.getItem('user')).id;
+    const email = JSON.parse(localStorage.getItem('user')).email;
     let user = {id: id, email: email};
     const item = {item: this.itemDetail.item, qty: this.qtySelected, user: user};
     let cartDeatil = new CartDetail().deserialize(item);

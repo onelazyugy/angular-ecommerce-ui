@@ -4,8 +4,9 @@ import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { User } from '../model/user.model';
-import { UserDetail } from '../model/DEL_user.detail.model';
+// import { UserDetail } from '../model/DEL_user.detail.model';
 import { LoginUserResponse } from '../model/response/login-user-response.model';
+import { SignupUserResponse } from '../model/response/signup-user-response.model';
 
 @Injectable({
     providedIn: 'root'
@@ -18,10 +19,10 @@ export class UserService {
     
     constructor(private http: HttpClient){}
 
-    signup(user: any): Observable<UserDetail> {
-        return this.http.post<UserDetail>(environment.signupUrl, user)
+    signup(user: any): Observable<SignupUserResponse> {
+        return this.http.post<SignupUserResponse>(environment.signupUrl, user)
         .pipe(
-            map(data => new UserDetail().deserialize(data)),
+            map(data => new SignupUserResponse().deserialize(data)),
             catchError(error => {
                 return throwError(error);
             })

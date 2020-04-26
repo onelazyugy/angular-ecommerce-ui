@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.userService.login({'user': this.user}).subscribe((response: LoginUserResponse) =>{
       if(response && response.status !== undefined && response.status.statusCd === 200 && response.success) {
         this.loginForm.reset();
-        localStorage.setItem("user", JSON.stringify({"accessToken": response.token.accessToken, "email": response.email}));
+        localStorage.setItem('user', JSON.stringify({'accessToken': response.token.accessToken, 'email': response.email, 'id': response.id}));
         //TODO: save the JWT into localStorage
         // npm install --save @auth0/angular-jwt
         this.userService.emitLoginUserDetail(response);
