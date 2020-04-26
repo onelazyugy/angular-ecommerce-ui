@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 import { Subscription } from 'rxjs';
+import { SignUpUserRequest } from '../model/request/signup-user-request.model';
 
 @Component({
   selector: 'app-signup',
@@ -30,7 +31,8 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.user.password = this.signupForm.value.password;
     this.user.confirmPassword = this.signupForm.value.confirmPassword;
     //TODO: validation
-    this.userSignupSubscription = this.userService.signup(this.user).subscribe(response => {
+    const signupUserRequest: SignUpUserRequest = new SignUpUserRequest().deserialize(this.user);
+    this.userSignupSubscription = this.userService.signup(signupUserRequest).subscribe(response => {
       if(response && response.status !== undefined && response.status.statusCd === 200) {
         this.signupForm.reset();
         this.router.navigate(['/login']);

@@ -7,6 +7,8 @@ import { User } from '../model/user.model';
 // import { UserDetail } from '../model/DEL_user.detail.model';
 import { LoginUserResponse } from '../model/response/login-user-response.model';
 import { SignupUserResponse } from '../model/response/signup-user-response.model';
+import { SignUpUserRequest } from '../model/request/signup-user-request.model';
+import { LoginUserRequest } from '../model/request/login-user-request.model';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +21,7 @@ export class UserService {
     
     constructor(private http: HttpClient){}
 
-    signup(user: any): Observable<SignupUserResponse> {
+    signup(user: SignUpUserRequest): Observable<SignupUserResponse> {
         return this.http.post<SignupUserResponse>(environment.signupUrl, user)
         .pipe(
             map(data => new SignupUserResponse().deserialize(data)),
@@ -29,7 +31,7 @@ export class UserService {
         );
     }
 
-    login(user: any): Observable<LoginUserResponse> {
+    login(user: LoginUserRequest): Observable<LoginUserResponse> {
         return this.http.post<LoginUserResponse>(environment.loginUrl, user)
         .pipe(
             map(data => new LoginUserResponse().deserialize(data)),

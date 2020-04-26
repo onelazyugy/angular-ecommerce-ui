@@ -1,8 +1,8 @@
-import {Deserializable} from './deserializable.model';
-import {Item} from './item.model';
-import { Status } from './status.model';
+import {Deserializable} from '../deserializable.model';
+import {Item} from '../item.model';
+import { Status } from '../status.model';
 
-export class Clothing implements Deserializable {
+export class ClothingResponse implements Deserializable {
     status: Status;
     clothingItems: Item[];
 

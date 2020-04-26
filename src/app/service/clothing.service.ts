@@ -2,23 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { Clothing } from '../model/clothing.model';
+import { ClothingResponse } from '../model/response/clothing-response.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ClothingService {
-    clothing: Clothing;
-    private clothingSubject$ = new BehaviorSubject<Clothing>(this.clothing);
+    clothing: ClothingResponse;
+    private clothingSubject$ = new BehaviorSubject<ClothingResponse>(this.clothing);
     clothingChange$ = this.clothingSubject$.asObservable();
     
     constructor(private http: HttpClient){}
 
-    fetchClothingDetials(): Observable<Clothing> {
-        return this.http.get<Clothing>(environment.clothingUrl)
+    fetchClothingDetials(): Observable<ClothingResponse> {
+        return this.http.get<ClothingResponse>(environment.clothingUrl)
         .pipe(
-            map(data => new Clothing().deserialize(data)),
+            map(data => new ClothingResponse().deserialize(data)),
             catchError(error => {
                 console.log('fetchClothingDetials: error and rethrowing it...', error);
                 return throwError(error);
@@ -26,7 +26,7 @@ export class ClothingService {
         );
     }
 
-    emitClothingDetials(clothing: Clothing) {
+    emitClothingDetials(clothing: ClothingResponse) {
         this.clothingSubject$.next(clothing);
     }
 }

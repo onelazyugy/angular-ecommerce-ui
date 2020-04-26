@@ -1,8 +1,8 @@
-import {Deserializable} from './deserializable.model';
-import {Item} from './item.model';
-import { Status } from './status.model';
+import {Deserializable} from '../deserializable.model';
+import {Item} from '../item.model';
+import { Status } from '../status.model';
 
-export class Store implements Deserializable {
+export class StoreResponse implements Deserializable {
     status: Status;
     mostViewedItems: Item[];
     recentlyViewedItems: Item[];

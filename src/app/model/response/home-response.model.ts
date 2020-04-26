@@ -1,9 +1,9 @@
-import {Deserializable} from './deserializable.model';
-import {Item} from './item.model';
-import { Status } from './status.model';
+import {Deserializable} from '../deserializable.model';
+import {Item} from '../item.model';
+import { Status } from '../status.model';
 
 // https://nehalist.io/angular-7-models/
-export class Home implements Deserializable {
+export class HomeResponse implements Deserializable {
     status: Status;
     newArrivalItems: Item[];
     discountedItems: Item[];
